@@ -3,11 +3,11 @@ Please don't execute it with more than 5 threads as it uses publicly available a
 
 You can set up a CI build based on this project and parameterize build as -
 
-![Parameterized CI build](http://www.awesomescreenshot.com/image/695012/6b3ff35f6b855e90be9a3116fb59e597)
+![Parameterized CI build](http://www.awesomescreenshot.com/upload/18268/18496/ca7668b5-b02b-4574-6602-3154ae947aec.png)
 
 And now you can provide these values from building the job - 
 
-~[Execute CI Build](http://www.awesomescreenshot.com/image/695039/1cddf23e40cf73533781cd2c244084a3)
+![Execute CI Build](http://www.awesomescreenshot.com/upload/18268/18496/97c57696-fc89-479e-6f47-d518fce80b49.png)
 
 
 To execute test locally execute following command - 
