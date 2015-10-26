@@ -18,7 +18,11 @@ DAPP_URL=newtours.demoaut.com -DUSERS=$USERS -DDURATION=$DURATION -DRAMPUP_PERIO
     
 Replace $USERS with number of users you want to run test with. Specify required values for other parameters and execute the tests
 
-Once test execution is over then you can browse through test results under - /target/jmeter/results/index.html directory 
+Once test execution is over then you can browse through test results under - 
+
+```
+/target/jmeter/results/index.html directory
+ ```
 
 
 
