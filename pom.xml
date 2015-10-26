@@ -1,0 +1,101 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.seleniumtests</groupId>
+  <artifactId>jmeter-maventest</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>jmeter-maventest</name>
+  <url>http://seleniumtests.com</url>
+<properties>
+    <APP_URL>newtours.demoaut.com</APP_URL>
+    <USERS>1</USERS>
+    <DURATION>10</DURATION>
+    <RAMPUP_PERIOD>0</RAMPUP_PERIOD>
+    <STARTUP_DELAY>0</STARTUP_DELAY>
+</properties>
+
+
+<build>
+    <plugins>
+        <plugin>
+            <groupId>com.lazerycode.jmeter</groupId>
+            <artifactId>jmeter-maven-plugin</artifactId>
+            <version>1.10.1</version>
+            <configuration>
+                <propertiesUser>
+                    <APP_URL>${APP_URL}</APP_URL>
+                    <USERS>${USERS}</USERS>
+                    <DURATION>${DURATION}</DURATION>
+                    <RAMPUP_PERIOD>${RAMPUP_PERIOD}</RAMPUP_PERIOD>
+                    <STARTUP_DELAY>${STARTUP_DELAY}</STARTUP_DELAY>
+                </propertiesUser>
+                <testResultsTimestamp>false</testResultsTimestamp>
+                <overrideRootLogLevel>INFO</overrideRootLogLevel>
+                <suppressJMeterOutput>false</suppressJMeterOutput>
+                <ignoreResultFailures>true</ignoreResultFailures>
+                <resultsFileFormat>xml</resultsFileFormat>
+                <testResultsTimestamp>false</testResultsTimestamp>
+                <propertiesJMeter>
+                    <jmeter.save.saveservice.thread_counts>true</jmeter.save.saveservice.thread_counts>
+                    <CookieManager.save.cookies>true</CookieManager.save.cookies>
+                    <view.results.tree.max_size>0</view.results.tree.max_size>
+                </propertiesJMeter>
+            </configuration>
+            <executions>
+                <execution>
+                    <id>jmeter-tests</id>
+                    <phase>verify</phase>
+                    <goals>
+                        <goal>jmeter</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+        <plugin>
+            <groupId>com.lazerycode.jmeter</groupId>
+            <artifactId>jmeter-analysis-maven-plugin</artifactId>
+            <version>1.0.5</version>
+            <executions>
+                <execution>
+                    <phase>verify</phase>
+                    <goals>
+                        <goal>analyze</goal>
+                    </goals>
+                    <configuration>
+                        <source>${project.build.directory}/**/*.jtl</source>
+                        <targetDirectory>${project.build.directory}/jmeter/results</targetDirectory>
+                        <sourceDirFailed>true</sourceDirFailed>
+                        <checkResult>
+                            <throughput>
+                                <threshold>-1</threshold>
+                                <toleranceDirection>UPPER_LOWER_TOLERANCE</toleranceDirection>
+                                <tolerance>5</tolerance>
+                            </throughput>
+                            <errors>
+                                <threshold>-1</threshold>
+                                <toleranceDirection>UPPER_LOWER_TOLERANCE</toleranceDirection>
+                                <tolerance>5</tolerance>
+                            </errors>
+                        </checkResult>
+                        <generateCSVs>true</generateCSVs>
+                        <generateCharts>true</generateCharts>
+                        <configurationCharts>
+                            <width>950</width>
+                            <height>500</height>
+                        </configurationCharts>
+                        <maxSamples>50000</maxSamples>
+                        <preserveDirectories>false</preserveDirectories>
+                        <sampleNames>
+                            <sampleName>sample</sampleName>
+                            <sampleName>httpSample</sampleName>
+                        </sampleNames>
+                        <processAllFilesFound>false</processAllFilesFound>
+                        <templateDirectory>${project.basedir}/src/main/resources/</templateDirectory>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+    </plugins>
+</build>
+</project>
