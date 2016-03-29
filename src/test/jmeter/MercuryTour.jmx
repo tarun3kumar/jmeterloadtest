@@ -258,8 +258,8 @@
           </HeaderManager>
           <hashTree/>
           <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
-            <stringProp name="RandomTimer.range">13501.6</stringProp>
-            <stringProp name="ConstantTimer.delay">27003.2</stringProp>
+            <stringProp name="RandomTimer.range">1000</stringProp>
+            <stringProp name="ConstantTimer.delay">2000</stringProp>
           </UniformRandomTimer>
           <hashTree/>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
@@ -320,8 +320,8 @@
           </HeaderManager>
           <hashTree/>
           <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
-            <stringProp name="RandomTimer.range">156.0</stringProp>
-            <stringProp name="ConstantTimer.delay">312.0</stringProp>
+            <stringProp name="RandomTimer.range">1000</stringProp>
+            <stringProp name="ConstantTimer.delay">2000</stringProp>
           </UniformRandomTimer>
           <hashTree/>
         </hashTree>
