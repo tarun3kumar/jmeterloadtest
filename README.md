@@ -1,5 +1,5 @@
 This is a sample load test project, demonstrating jmeter and maven integration.
-Please don't execute it with more than 5 threads as it uses publicly available application
+Please don't execute it with more than 1 thread as it uses publicly available application
 
 You can set up a CI build based on this project and parameterize build as -
 
