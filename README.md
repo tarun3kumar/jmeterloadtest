@@ -23,6 +23,4 @@ Once test execution is over then you can browse through test results under -
 ```
 /target/jmeter/results/index.html directory
  ```
-
-
-
+You can read more about maven [JMeter plugin](https://github.com/jmeter-maven-plugin/jmeter-maven-plugin)
