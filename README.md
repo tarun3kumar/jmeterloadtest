@@ -24,3 +24,5 @@ Once test execution is over then you can browse through test results under -
 /target/jmeter/results/index.html directory
  ```
 You can read more about maven [JMeter plugin](https://github.com/jmeter-maven-plugin/jmeter-maven-plugin)
+
+Notice that if you want to mark CI build as fail on the basis of test results then you should use [JMeter Analysis Plugin] (https://github.com/afranken/jmeter-analysis-maven-plugin) and set the threshold level
