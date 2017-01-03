@@ -25,4 +25,17 @@ Once test execution is over then you can browse through test results under -
  ```
 You can read more about maven [JMeter plugin](https://github.com/jmeter-maven-plugin/jmeter-maven-plugin)
 
-Notice that if you want to mark CI build as fail on the basis of test results then you should use [JMeter Analysis Plugin] (https://github.com/afranken/jmeter-analysis-maven-plugin) and set the threshold level
+~~Notice that if you want to mark CI build as fail on the basis of test results then you should use [JMeter Analysis Plugin] (https://github.com/afranken/jmeter-analysis-maven-plugin) and set the threshold level~~
+
+Don't use JMeter Analysis Plugin as it requires result files to be in xml format which is more resource comsuming than csv file. Set following property to generate results in csv format - ```<resultsFileFormat>csv</resultsFileFormat>```
+
+To mark CI job as failed, add following script on your Build section 
+
+```
+if grep false "$WORKSPACE/prototype/target/jmeter/results/*.jtl"; then
+   echo "Test Failures!!! please check "$WORKSPACE/prototype/target/jmeter/results/*.jtl" file"
+   exit 1
+fi
+```
+
+To generate JMeter dashbaord after test run use following [approach](http://www.testautomationguru.com/jmeter-continuous-performance-testing-jmeter-maven/) 
