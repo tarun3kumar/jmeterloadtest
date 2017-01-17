@@ -29,7 +29,7 @@ You can read more about maven [JMeter plugin](https://github.com/jmeter-maven-pl
 
 Don't use JMeter Analysis Plugin as it requires result files to be in xml format which is more resource comsuming than csv file. Set following property to generate results in csv format - ```<resultsFileFormat>csv</resultsFileFormat>```
 
-To mark CI job as failed, add following script on your Build section 
+Add following script on your Build section to mark CI job as failed when there is a false result, 
 
 ```
 if grep false "$WORKSPACE/prototype/target/jmeter/results/*.jtl"; then
@@ -38,4 +38,11 @@ if grep false "$WORKSPACE/prototype/target/jmeter/results/*.jtl"; then
 fi
 ```
 
+Add following script on your Build section to mark CI job as failed when threshold is less than 1 (or number according to your business case) -
+
+```
+SUMMARY=${WORKSPACE}/prototype/target/jmeter/logs/*.log
+grep "jmeter.reporters.Summariser: summary" ${SUMMARY} | tail -1 | awk '{print $12}' | cut -d "." -f1 |
+awk '{if($0<=1){echo "Thoughput is less than 1 per sec" exit 1} }'
+```
 To generate JMeter dashbaord after test run use following [approach](http://www.testautomationguru.com/jmeter-continuous-performance-testing-jmeter-maven/) 
