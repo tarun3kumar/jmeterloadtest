@@ -13,7 +13,7 @@ And now you can provide these values from building the job -
 To execute test locally execute following command - 
 
 ```
-DAPP_URL=newtours.demoaut.com -DUSERS=$USERS -DDURATION=$DURATION -DRAMPUP_PERIOD=$RAMPUP_PERIOD -DSTARTUP_DELAY=$STARTUP_DELAY verify
+mvn DAPP_URL=newtours.demoaut.com -DUSERS=$USERS -DDURATION=$DURATION -DRAMPUP_PERIOD=$RAMPUP_PERIOD -DSTARTUP_DELAY=$STARTUP_DELAY clean verify
 ```
     
 Replace $USERS with number of users you want to run test with. Specify required values for other parameters and execute the tests
