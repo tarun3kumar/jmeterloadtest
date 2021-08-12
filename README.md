@@ -45,4 +45,4 @@ SUMMARY=${WORKSPACE}/prototype/target/jmeter/logs/*.log
 grep "jmeter.reporters.Summariser: summary" ${SUMMARY} | tail -1 | awk '{print $12}' | cut -d "." -f1 |
 awk '{if($0<=1){echo "Thoughput is less than 1 per sec" exit 1} }'
 ```
-To generate JMeter dashbaord after test run use following [approach](http://www.testautomationguru.com/jmeter-continuous-performance-testing-jmeter-maven/) 
+To generate JMeter dashbaord after test run use following [approach](https://www.youtube.com/watch?v=s7A0UxxD5zo) 
